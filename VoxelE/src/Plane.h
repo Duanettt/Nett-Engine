@@ -24,6 +24,6 @@ private:
 
 	glm::mat4 planeModelMatrix;
 
-	float planeVertices[]; 
+	float planeVertices[30]; 
 };
 

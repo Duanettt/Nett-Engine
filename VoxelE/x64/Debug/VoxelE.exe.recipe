@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\dev\VoxelE\VoxelE\x64\Debug\VoxelE.exe</FullPath>
+      <FullPath>C:\dev\Netvox\x64\Debug\VoxelE.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

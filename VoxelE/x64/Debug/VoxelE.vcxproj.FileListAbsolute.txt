@@ -1,1 +1,2 @@
 C:\dev\VoxelE\VoxelE\VoxelE\x64\Debug\VoxelE.vcxproj.Up2Date
+C:\dev\Netvox\VoxelE\x64\Debug\VoxelE.vcxproj.Up2Date

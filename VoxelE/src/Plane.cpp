@@ -19,7 +19,7 @@ void Plane::Init()
     glGenBuffers(1, &planeVBO);
     glBindVertexArray(planeVAO);
     glBindBuffer(GL_ARRAY_BUFFER, planeVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(&planeVertices), &planeVertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(planeVertices), &planeVertices, GL_STATIC_DRAW);
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(1);
@@ -29,11 +29,11 @@ void Plane::Init()
 void Plane::Draw(Shader& shader, glm::mat4 projection, glm::mat4& view)
 {
     shader.use();
-    shader.setMat4("projection", projection);
     shader.setMat4("view", view);
-    shader.setMat4("model", planeModelMatrix);
-    // Bind and Draw
+    shader.setMat4("projection", projection);
     glBindVertexArray(planeVAO);
+    //glBindTexture(GL_TEXTURE_2D, floorTexture);
+    shader.setMat4("model", glm::mat4(1.0f));
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);
 }

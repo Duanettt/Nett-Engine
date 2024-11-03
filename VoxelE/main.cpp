@@ -167,16 +167,16 @@ int main()
 
     block.Init();
     // plane VAO
-    /*unsigned int planeVAO, planeVBO;
-    glGenVertexArrays(1, &planeVAO);
-    glGenBuffers(1, &planeVBO);
-    glBindVertexArray(planeVAO);
-    glBindBuffer(GL_ARRAY_BUFFER, planeVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(planeVertices), &planeVertices, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));*/
+    //unsigned int planeVAO, planeVBO;
+    //glGenVertexArrays(1, &planeVAO);
+    //glGenBuffers(1, &planeVBO);
+    //glBindVertexArray(planeVAO);
+    //glBindBuffer(GL_ARRAY_BUFFER, planeVBO);
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(planeVertices), &planeVertices, GL_STATIC_DRAW);
+    //glEnableVertexAttribArray(0);
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    //glEnableVertexAttribArray(1);
+    //glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 
     plane.Init();
     // screen quad VAO
@@ -273,15 +273,20 @@ int main()
         //glDrawArrays(GL_TRIANGLES, 0, 36);
         // 
         chunk.Draw(blockShader, projection, view);
-        // floor
-      /*  shader.use();
-        glBindVertexArray(planeVAO);
-        glBindTexture(GL_TEXTURE_2D, floorTexture);
-        shader.setMat4("model", glm::mat4(1.0f));
-        glDrawArrays(GL_TRIANGLES, 0, 6);
-        glBindVertexArray(0);*/
 
+        // floor
+        //shader.use();
+        //shader.setMat4("view", view);
+        //shader.setMat4("projection", projection);
+        //glBindVertexArray(planeVAO);
+        //glBindTexture(GL_TEXTURE_2D, floorTexture);
+        //shader.setMat4("model", glm::mat4(1.0f));
+        //glDrawArrays(GL_TRIANGLES, 0, 6);
+        //        //glBindVertexArray(0);
+        
         plane.Draw(shader, projection, view);
+
+        //plane.Draw(shader, projection, view);
 
         // now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
