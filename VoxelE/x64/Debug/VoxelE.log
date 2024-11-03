@@ -1,0 +1,5 @@
+﻿  Chunk.cpp
+C:\dev\VoxelE\VoxelE\VoxelE\src\Chunk.cpp(16,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+  VoxelE.vcxproj -> C:\dev\VoxelE\VoxelE\x64\Debug\VoxelE.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
