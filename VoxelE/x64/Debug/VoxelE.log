@@ -1,4 +1,11 @@
 ﻿  main.cpp
+C:\dev\Netvox\VoxelE\src\NoiseTerrain.h(3,9): warning C4005: 'CHUNK_SIZE': macro redefinition
+  (compiling source file 'main.cpp')
+      C:\dev\Netvox\VoxelE\src\Chunk.h(8,9):
+      see previous definition of 'CHUNK_SIZE'
+  
+  NoiseTerrain.cpp
+  Generating Code...
   VoxelE.vcxproj -> C:\dev\Netvox\x64\Debug\VoxelE.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

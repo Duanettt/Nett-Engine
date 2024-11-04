@@ -12,6 +12,8 @@
 #include "src/Chunk.h"
 #include "src/Plane.h"
 
+#include "src/NoiseTerrain.h"
+
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -88,6 +90,9 @@ int main()
     Block block;
     Chunk chunk;
     Plane plane;
+    NoiseTerrain terrain;
+
+    chunk.CreateSphereChunk();
 
     float cubeVertices[] = {
         // positions          // texture Coords
@@ -165,7 +170,7 @@ int main()
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));*/
 
-    block.Init();
+    //block.Init();
     // plane VAO
     //unsigned int planeVAO, planeVBO;
     //glGenVertexArrays(1, &planeVAO);
@@ -272,7 +277,9 @@ int main()
         //shader.setMat4("model", model);
         //glDrawArrays(GL_TRIANGLES, 0, 36);
         // 
-        chunk.Draw(blockShader, projection, view);
+        //chunk.Draw(blockShader, projection, view);
+
+        terrain.GenerateTerrain(blockShader, projection, view);
 
         // floor
         //shader.use();
@@ -284,9 +291,9 @@ int main()
         //glDrawArrays(GL_TRIANGLES, 0, 6);
         //        //glBindVertexArray(0);
         
-        plane.Draw(shader, projection, view);
-
         //plane.Draw(shader, projection, view);
+
+        plane.Draw(shader, projection, view);
 
         // now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -337,8 +344,11 @@ void processInput(GLFWwindow* window)
         camera.ProcessKeyboard(LEFT, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         camera.ProcessKeyboard(RIGHT, deltaTime);
-}
-
+    if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        camera.ProcessKeyboard(UP, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        camera.ProcessKeyboard(DOWN, deltaTime);
+} 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)

@@ -1,3 +1,4 @@
+C:\dev\Netvox\VoxelE\src\NoiseTerrain.cpp;C:\dev\Netvox\VoxelE\x64\Debug\NoiseTerrain.obj
 C:\dev\Netvox\VoxelE\src\Plane.cpp;C:\dev\Netvox\VoxelE\x64\Debug\Plane.obj
 C:\dev\Netvox\VoxelE\src\Chunk.cpp;C:\dev\Netvox\VoxelE\x64\Debug\Chunk.obj
 C:\dev\Netvox\VoxelE\src\Block.cpp;C:\dev\Netvox\VoxelE\x64\Debug\Block.obj
@@ -5,3 +6,4 @@ C:\dev\Netvox\VoxelE\main.cpp;C:\dev\Netvox\VoxelE\x64\Debug\main.obj
 C:\dev\Netvox\VoxelE\src\Camera.cpp;C:\dev\Netvox\VoxelE\x64\Debug\Camera.obj
 C:\dev\Netvox\VoxelE\src\Shader.cpp;C:\dev\Netvox\VoxelE\x64\Debug\Shader.obj
 C:\dev\Netvox\VoxelE\src\stb_image.cpp;C:\dev\Netvox\VoxelE\x64\Debug\stb_image.obj
+C:\dev\Netvox\VoxelE\src\Texture.cpp;C:\dev\Netvox\VoxelE\x64\Debug\Texture.obj
