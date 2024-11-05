@@ -31,7 +31,6 @@ public:
 
 	void DrawInstanced(Shader& shader, glm::mat4 projection, glm::mat4& view, int instanceCount);
 
-	void DrawInstanced(Shader& shader, glm::mat4 projection, glm::mat4& view, GLuint modelMatrixBuffer, int instanceCount);
 
 private:
 	unsigned int VAO, VBO;

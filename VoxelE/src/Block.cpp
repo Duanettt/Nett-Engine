@@ -65,7 +65,7 @@ void Block::InitInstanced(std::vector<glm::mat4> modelMatrices)
     unsigned int instanceVBO;
     glGenBuffers(1, &instanceVBO);
     glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::vec3) * modelMatrices.size(), modelMatrices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(glm::mat4) * modelMatrices.size(), modelMatrices.data(), GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     glGenVertexArrays(1, &VAO);
@@ -80,10 +80,6 @@ void Block::InitInstanced(std::vector<glm::mat4> modelMatrices)
 
     glEnableVertexAttribArray(2);
     glBindBuffer(GL_ARRAY_BUFFER, instanceVBO);
-    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(glm::mat4), (void*)(0 * sizeof(glm::vec4)));
-    glVertexAttribDivisor(2, 1);
-
-
     // Each model matrix consists of 4 vec4s, so you need 4 attribute locations
     for (int i = 0; i < 4; i++) {
         glEnableVertexAttribArray(2 + i);
