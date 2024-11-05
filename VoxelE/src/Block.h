@@ -7,8 +7,11 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 #include "Shader.h"
+
+#include <vector>
 
 class Block
 {
@@ -17,11 +20,18 @@ public:
 
 	void Init();
 
+	void InitInstanced(std::vector<glm::mat4> modelMatrices);
+
+
 	void SetPosition(glm::vec3 blockPosition);
 
 	void SetScale(float scale);
 
 	void Draw(Shader& shader, glm::mat4 projection, glm::mat4& view);
+
+	void DrawInstanced(Shader& shader, glm::mat4 projection, glm::mat4& view, int instanceCount);
+
+	void DrawInstanced(Shader& shader, glm::mat4 projection, glm::mat4& view, GLuint modelMatrixBuffer, int instanceCount);
 
 private:
 	unsigned int VAO, VBO;

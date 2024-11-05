@@ -146,11 +146,14 @@
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\Texture.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\blockShader.frag" />
     <None Include="res\shaders\blockShader.vert" />
     <None Include="res\shaders\fragmentShader.frag" />
+    <None Include="res\shaders\otherBlockShader.frag" />
+    <None Include="res\shaders\otherBlockShader.vert" />
     <None Include="res\shaders\screenFragmentShader.frag" />
     <None Include="res\shaders\screenVertexShader.vert" />
     <None Include="res\shaders\vertexShader.vert" />

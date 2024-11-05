@@ -83,7 +83,7 @@ int main()
     Shader shader("./res/shaders/vertexShader.vert", "./res/shaders/fragmentShader.frag");
     Shader screenShader("./res/shaders/screenVertexShader.vert", "./res/shaders/screenFragmentShader.frag");
     Shader blockShader("./res/shaders/blockShader.vert", "./res/shaders/blockShader.frag");
-
+    Shader normalBlockShader("./res/shaders/otherBlockShader.vert", "./res/shaders/otherBlockShader.frag");
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ int main()
     Plane plane;
     NoiseTerrain terrain;
 
-    chunk.CreateSphereChunk();
+    //chunk.CreateSphereChunk();
 
     float cubeVertices[] = {
         // positions          // texture Coords
@@ -279,7 +279,7 @@ int main()
         // 
         //chunk.Draw(blockShader, projection, view);
 
-        terrain.GenerateTerrain(blockShader, projection, view);
+        terrain.GenerateTerrainInstanced(blockShader, projection, view);
 
         // floor
         //shader.use();

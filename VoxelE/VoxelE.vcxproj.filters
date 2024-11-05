@@ -68,6 +68,9 @@
     <ClInclude Include="src\NoiseTerrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\fragmentShader.frag" />
@@ -75,6 +78,8 @@
     <None Include="res\shaders\screenVertexShader.vert" />
     <None Include="res\shaders\screenFragmentShader.frag" />
     <None Include="res\shaders\blockShader.frag" />
+    <None Include="res\shaders\otherBlockShader.vert" />
+    <None Include="res\shaders\otherBlockShader.frag" />
     <None Include="res\shaders\blockShader.vert" />
   </ItemGroup>
   <ItemGroup>
