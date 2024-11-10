@@ -37,7 +37,7 @@ private:
 
 	glm::mat4 blockModel = glm::mat4(1.0f);
 
-	float cubeVertices[180];
+	float cubeVertices[216];
 
 };
 

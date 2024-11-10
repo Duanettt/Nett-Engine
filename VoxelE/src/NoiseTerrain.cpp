@@ -5,10 +5,10 @@ NoiseTerrain::NoiseTerrain()
 
 	myNoise.SetFrequency(0.2);
 	myNoise.SetOctaveCount(4);
-	myNoise.SetPersistence(0.5);
-	myNoise.SetLacunarity(1.8);
+	myNoise.SetPersistence(0.2);
+	myNoise.SetLacunarity(1.2);
 
-	float scale = 0.5f;
+	float scale = 0.2f;
 
 	// Loop over the horizontal (x, z) coordinates only
 // Loop over the horizontal (x, z) coordinates only
@@ -21,7 +21,7 @@ NoiseTerrain::NoiseTerrain()
 			//std::cout << "Noise Value at (" << x << ", " << z << "): " << noiseValue << std::endl;
 
 			// Map the noise value to a suitable height range within CHUNK_SIZE
-			int height = static_cast<int>((noiseValue + 1.0) * 0.5 * CHUNK_SIZE);
+			int height = static_cast<int>((noiseValue + 1.0) * 0.15 * CHUNK_SIZE);
 
 			// Place blocks up to the calculated height
 			for (int y = 0; y < height; y++)
@@ -67,7 +67,7 @@ NoiseTerrain::NoiseTerrain(bool normalTerrain)
 			double noiseValue = GenerateNoise(x, 0, z); // Sample noise only in the x-z plane
 
 			// Map the noise value to a suitable height range within CHUNK_SIZE
-			int height = static_cast<int>((noiseValue + 1.0) * 0.5 * CHUNK_SIZE);
+			int height = static_cast<int>((noiseValue + 1.0) * 0.2 * CHUNK_SIZE);
 
 			// Place blocks up to the calculated height
 			for (int y = 0; y < height; y++)

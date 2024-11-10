@@ -81,6 +81,8 @@
     <None Include="res\shaders\otherBlockShader.vert" />
     <None Include="res\shaders\otherBlockShader.frag" />
     <None Include="res\shaders\blockShader.vert" />
+    <None Include="res\shaders\lightCubeShader.frag" />
+    <None Include="res\shaders\lightCubeShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\textures\container.jpg">

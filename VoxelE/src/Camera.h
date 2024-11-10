@@ -109,7 +109,7 @@ public:
 
         if (instruction == INCREASE)
         {
-            MovementSpeed = MovementSpeed + 0.5f;
+            MovementSpeed = MovementSpeed + 0.9f;
         }
         if (instruction == DECREASE)
         {

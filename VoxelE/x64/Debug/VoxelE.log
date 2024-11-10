@@ -1,5 +1,4 @@
-﻿  NoiseTerrain.cpp
-C:\dev\Netvox\VoxelE\src\NoiseTerrain.cpp(101,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+﻿  main.cpp
   VoxelE.vcxproj -> C:\dev\Netvox\x64\Debug\VoxelE.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

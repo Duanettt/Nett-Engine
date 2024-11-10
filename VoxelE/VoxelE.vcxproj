@@ -152,6 +152,8 @@
     <None Include="res\shaders\blockShader.frag" />
     <None Include="res\shaders\blockShader.vert" />
     <None Include="res\shaders\fragmentShader.frag" />
+    <None Include="res\shaders\lightCubeShader.frag" />
+    <None Include="res\shaders\lightCubeShader.vert" />
     <None Include="res\shaders\otherBlockShader.frag" />
     <None Include="res\shaders\otherBlockShader.vert" />
     <None Include="res\shaders\screenFragmentShader.frag" />

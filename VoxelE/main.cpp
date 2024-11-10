@@ -27,7 +27,7 @@ const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
 // camera
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(1.2f, 3.0f, 2.0f));
 float lastX = (float)SCR_WIDTH / 2.0;
 float lastY = (float)SCR_HEIGHT / 2.0;
 bool firstMouse = true;
@@ -83,7 +83,7 @@ int main()
     Shader shader("./res/shaders/vertexShader.vert", "./res/shaders/fragmentShader.frag");
     Shader screenShader("./res/shaders/screenVertexShader.vert", "./res/shaders/screenFragmentShader.frag");
     Shader blockShader("./res/shaders/blockShader.vert", "./res/shaders/blockShader.frag");
-    Shader normalBlockShader("./res/shaders/otherBlockShader.vert", "./res/shaders/otherBlockShader.frag");
+    Shader lightingShader("./res/shaders/lightCubeShader.vert", "./res/shaders/lightCubeShader.frag");
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
 
@@ -93,61 +93,6 @@ int main()
     NoiseTerrain terrain;
 
     //chunk.CreateSphereChunk();
-
-    float cubeVertices[] = {
-        // positions          // texture Coords
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-    };
-    float planeVertices[] = {
-        // positions          // texture Coords 
-         5.0f, -0.5f,  5.0f,  2.0f, 0.0f,
-        -5.0f, -0.5f,  5.0f,  0.0f, 0.0f,
-        -5.0f, -0.5f, -5.0f,  0.0f, 2.0f,
-
-         5.0f, -0.5f,  5.0f,  2.0f, 0.0f,
-        -5.0f, -0.5f, -5.0f,  0.0f, 2.0f,
-         5.0f, -0.5f, -5.0f,  2.0f, 2.0f
-    };
     float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
         // positions   // texCoords
         -1.0f,  1.0f,  0.0f, 1.0f,
@@ -158,30 +103,8 @@ int main()
          1.0f, -1.0f,  1.0f, 0.0f,
          1.0f,  1.0f,  1.0f, 1.0f
     };
-    // cube VAO
-   /* unsigned int cubeVAO, cubeVBO;
-    glGenVertexArrays(1, &cubeVAO);
-    glGenBuffers(1, &cubeVBO);
-    glBindVertexArray(cubeVAO);
-    glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), &cubeVertices, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));*/
 
-    //block.Init();
-    // plane VAO
-    //unsigned int planeVAO, planeVBO;
-    //glGenVertexArrays(1, &planeVAO);
-    //glGenBuffers(1, &planeVBO);
-    //glBindVertexArray(planeVAO);
-    //glBindBuffer(GL_ARRAY_BUFFER, planeVBO);
-    //glBufferData(GL_ARRAY_BUFFER, sizeof(planeVertices), &planeVertices, GL_STATIC_DRAW);
-    //glEnableVertexAttribArray(0);
-    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-    //glEnableVertexAttribArray(1);
-    //glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    block.Init();
 
     plane.Init();
     // screen quad VAO
@@ -196,6 +119,7 @@ int main()
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
+    //chunk.CreateSphereChunkInstanced(); 
     // load textures
     // -------------
     unsigned int cubeTexture = loadTexture("./res/textures/container.jpg");
@@ -211,6 +135,8 @@ int main()
 
     // framebuffer configuration
     // -------------------------
+
+    // TO DO: Need to create a class/struct that allows for frame buffer creations
     unsigned int framebuffer;
     glGenFramebuffers(1, &framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
@@ -263,35 +189,13 @@ int main()
 
         glm::mat4 view = camera.GetViewMatrix();
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //shader.setMat4("view", view);
-        //shader.setMat4("projection", projection);
-        //// cubes
-        //glBindVertexArray(cubeVAO);
-        //glActiveTexture(GL_TEXTURE0);
-        //glBindTexture(GL_TEXTURE_2D, cubeTexture);
-        //model = glm::translate(model, glm::vec3(-1.0f, 0.0f, -1.0f));
-        //shader.setMat4("model", model);
-        //glDrawArrays(GL_TRIANGLES, 0, 36);
-        //model = glm::mat4(1.0f);
-        //model = glm::translate(model, glm::vec3(2.0f, 0.0f, 0.0f));
-        //shader.setMat4("model", model);
-        //glDrawArrays(GL_TRIANGLES, 0, 36);
-        // 
-        //chunk.Draw(blockShader, projection, view);
 
+        block.SetPosition(glm::vec3(10.2f, 10.0f, 10.0f));
+
+        block.Draw(lightingShader, projection, view);
         terrain.GenerateTerrainInstanced(blockShader, projection, view);
 
-        // floor
-        //shader.use();
-        //shader.setMat4("view", view);
-        //shader.setMat4("projection", projection);
-        //glBindVertexArray(planeVAO);
-        //glBindTexture(GL_TEXTURE_2D, floorTexture);
-        //shader.setMat4("model", glm::mat4(1.0f));
-        //glDrawArrays(GL_TRIANGLES, 0, 6);
-        //        //glBindVertexArray(0);
-        
-        //plane.Draw(shader, projection, view);
+        //chunk.DrawInstanced(shader, projection, view);
 
         plane.Draw(shader, projection, view);
 
@@ -347,6 +251,10 @@ void processInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
         camera.ProcessKeyboard(UP, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        camera.ProcessKeyboard(DOWN, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
+        camera.ProcessKeyboard(INCREASE, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
         camera.ProcessKeyboard(DOWN, deltaTime);
 } 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
