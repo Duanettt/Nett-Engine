@@ -5,13 +5,14 @@
 #include <vector>
 #include <iostream>
 
-#define CHUNK_SIZE 150
+#define CHUNK_SIZE 50
 
 class Chunk
 {
 public:
 	Chunk();
 	void CreateCubeChunk();
+	void CreateCubeChunkInstanced();
 	void CreateSphereChunk();
 	void CreateSphereChunkInstanced();
 	void Draw(Shader& shader, glm::mat4 projection, glm::mat4& view);
@@ -21,6 +22,7 @@ public:
 	Block block;
 
 private:
+
 	std::vector<Block> blocks;
 	std::vector<glm::mat4> modelMatrices;
 };

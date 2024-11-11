@@ -92,7 +92,7 @@ int main()
     Plane plane;
     NoiseTerrain terrain;
 
-    //chunk.CreateSphereChunk();
+    chunk.CreateSphereChunkInstanced();
     float quadVertices[] = { // vertex attributes for a quad that fills the entire screen in Normalized Device Coordinates.
         // positions   // texCoords
         -1.0f,  1.0f,  0.0f, 1.0f,
@@ -195,7 +195,7 @@ int main()
         block.Draw(lightingShader, projection, view);
         terrain.GenerateTerrainInstanced(blockShader, projection, view);
 
-        //chunk.DrawInstanced(shader, projection, view);
+        chunk.DrawInstanced(blockShader, projection, view);
 
         plane.Draw(shader, projection, view);
 

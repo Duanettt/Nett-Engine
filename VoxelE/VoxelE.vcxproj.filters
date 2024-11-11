@@ -68,7 +68,7 @@
     <ClInclude Include="src\NoiseTerrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
+    <ClInclude Include="src\Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

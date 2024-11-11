@@ -60,7 +60,7 @@ void Block::Init()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 }
 
-void Block::InitInstanced(std::vector<glm::mat4> modelMatrices)
+void Block::InitInstanced(std::vector<glm::mat4>& modelMatrices)
 {
     unsigned int instanceVBO;
     glGenBuffers(1, &instanceVBO);

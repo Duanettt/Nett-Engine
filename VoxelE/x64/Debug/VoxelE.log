@@ -1,4 +1,7 @@
-﻿  main.cpp
+﻿  Chunk.cpp
+C:\dev\Netvox\VoxelE\src\Chunk.cpp(21,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\dev\Netvox\VoxelE\src\Chunk.cpp(42,17): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\dev\Netvox\VoxelE\src\Chunk.cpp(121,66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   VoxelE.vcxproj -> C:\dev\Netvox\x64\Debug\VoxelE.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.

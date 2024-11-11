@@ -146,7 +146,7 @@
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\Texture.h" />
-    <ClInclude Include="Utils.h" />
+    <ClInclude Include="src\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\blockShader.frag" />

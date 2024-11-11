@@ -1,6 +1,6 @@
 #pragma once
 
-#define CHUNK_SIZE 150
+#define CHUNK_SIZE 250
 
 #include "Block.h"
 

@@ -20,7 +20,7 @@ public:
 
 	void Init();
 
-	void InitInstanced(std::vector<glm::mat4> modelMatrices);
+	void InitInstanced(std::vector<glm::mat4>& modelMatrices);
 
 
 	void SetPosition(glm::vec3 blockPosition);

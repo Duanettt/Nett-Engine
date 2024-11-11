@@ -21,7 +21,7 @@ NoiseTerrain::NoiseTerrain()
 			//std::cout << "Noise Value at (" << x << ", " << z << "): " << noiseValue << std::endl;
 
 			// Map the noise value to a suitable height range within CHUNK_SIZE
-			int height = static_cast<int>((noiseValue + 1.0) * 0.15 * CHUNK_SIZE);
+			int height = static_cast<int>((noiseValue + 1.25) * 0.05 * CHUNK_SIZE);
 
 			// Place blocks up to the calculated height
 			for (int y = 0; y < height; y++)
