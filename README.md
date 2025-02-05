@@ -1,4 +1,4 @@
-# Voxel Game Engine
+# Nett Engine
 ![NetEngine GITHUB GIF](https://github.com/user-attachments/assets/71102885-45ec-4028-85ea-6c81e4fd2922)
 
 A modern C++ game engine featuring voxel-based rendering, physics simulation, and modular architecture. This engine was going to be a voxel based renderer and is now being expanded into a full blown rendering engine.
